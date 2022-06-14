@@ -205,8 +205,7 @@ JUMBLE_VERSION="1.3.0"
 JUMBLE_FNAME="jumble_binary_$JUMBLE_VERSION.jar"
 JUMBLE_URL="https://master.dl.sourceforge.net/project/jumble/jumble/1.3.0/jumble_binary_1.3.0.jar?viasf=1"
 cd "$MUTOOLS" && download_url "$JUMBLE_URL" \
-              && mkdir -p "jumble" \
-              && mv "$JUMBLE_FNAME" "jumble/"
+              && mkdir -p "jumble"
 
 ################################################################################
 #
