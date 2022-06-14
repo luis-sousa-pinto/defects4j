@@ -203,9 +203,10 @@ echo
 echo "Setting up Jumble ... "
 JUMBLE_VERSION="1.3.0"
 JUMBLE_FNAME="jumble_binary_$JUMBLE_VERSION.jar"
-JUMBLE_URL="https://master.dl.sourceforge.net/project/jumble/jumble/1.3.0/jumble_binary_1.3.0.jar?viasf=1"
+JUMBLE_URL="https://phoenixnap.dl.sourceforge.net/project/jumble/jumble/$JUMBLE_VERSION/$JUMBLE_FNAME"
 cd "$MUTOOLS" && download_url "$JUMBLE_URL" \
-              && mkdir -p "jumble"
+              && mkdir -p "jumble" \
+              && mv "$JUMBLE_FNAME" "jumble/"
 
 ################################################################################
 #
