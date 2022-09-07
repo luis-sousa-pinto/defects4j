@@ -135,7 +135,11 @@ public class {classname} extends TestCase {{
             shutil.rmtree(self.test_dir, ignore_errors=True)
             logger.debug("Old test dir removed")
 
-            os.makedirs(self.full_test_dir)
+            dirs = self.full_test_dir.as_posix().split(",")
+            for dir in dirs:
+                os.makedirs(dir, True)
+
+            #os.makedirs(self.full_test_dir)
             logger.debug("Created empty test dir up to class package")
 
         dummy = kwargs.get("dummy")
