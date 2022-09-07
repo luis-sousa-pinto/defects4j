@@ -49,10 +49,9 @@ RUN \
   && \
   rm -rf /var/lib/apt/lists/*
 
-COPY install_python.sh install_python.sh
-RUN bash install_python.sh ${PYTHON_VERSION_TAG} ${LINK_PYTHON_TO_PYTHON3} && \
-    rm -r install_python.sh Python-${PYTHON_VERSION_TAG}
-    
+RUN apt-get update && add-apt-repository -y ppa:deadsnakes/ppa
+RUN apt-get update && apt-get install -y python3.6 python3-distutils python3-pip python3-apt
+
 # Java version
 ENV JAVA_HOME /usr/lib/jvm/java-8-openjdk-amd64
 
