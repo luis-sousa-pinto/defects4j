@@ -60,6 +60,7 @@ public class {classname} extends TestCase {{
         self.package = ".".join(self.relevant_class.split(".")[:-1])
         package_path = self.package.replace(".", "/")
         self.full_test_dir = self.test_dir / package_path
+        self.package_path = package_path
 
         # agreement that testclasses are in the format package.to.ClassTest
         self.test_class = str(self.relevant_class) + "Test"
@@ -135,9 +136,14 @@ public class {classname} extends TestCase {{
             shutil.rmtree(self.test_dir, ignore_errors=True)
             logger.debug("Old test dir removed")
 
-            dirs = self.full_test_dir.as_posix().split(",")
+            dirs = self.package_path.split(",")
             for dir in dirs:
-                os.makedirs(dir, True)
+                try:
+                    path = os.path.join(self.test_dir, dir)
+                    os.makedirs(path, exist_ok = True)
+                    logger.info("Directory '%s' created successfully" %dir)
+                except OSError as error:
+                    logger.error("Directory '%s' can not be created")
 
             #os.makedirs(self.full_test_dir)
             logger.debug("Created empty test dir up to class package")

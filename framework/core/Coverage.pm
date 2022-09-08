@@ -48,11 +48,10 @@ my @COLS = DB::get_tab_columns($TAB_COVERAGE) or die "Cannot obtain table column
 # Default paths
 my $SER_FILE = "cobertura.ser";
 my $XML_FILE = "coverage.xml";
-my $HTML_FILE = "coverage.html";
 
-# Cobertura scripts
-my $COBERTURA_MERGE  = "$SCRIPT_DIR/projects/lib/cobertura-merge.sh";
-my $COBERTURA_REPORT = "$SCRIPT_DIR/projects/lib/cobertura-report.sh";
+# Corbetura scripts
+my $CORBETURA_MERGE  = "$SCRIPT_DIR/projects/lib/cobertura-merge.sh";
+my $CORBETURA_REPORT = "$SCRIPT_DIR/projects/lib/cobertura-report.sh";
 
 =pod
 
@@ -83,7 +82,6 @@ sub coverage {
 	my $datafile = "$root/datafile";
 	my $xmlfile  = "$root/$XML_FILE";
 	my $serfile  = "$root/$SER_FILE";
-    my $htmlfile = "$root/$HTML_FILE";
 
     # Remove stale data file
     system("rm -f $serfile");
@@ -106,11 +104,9 @@ sub coverage {
 		# Remove stale data files
 		system("rm -f $datafile") if -e $datafile;
 		system("rm -f $xmlfile")  if -e $xmlfile ;
-		system("rm -f $htmlfile") if -e $htmlfile ;
 
-		system("sh $COBERTURA_MERGE --datafile $datafile $merge_with $serfile >/dev/null 2>&1") == 0 or die "could not merge results";
-		system("sh $COBERTURA_REPORT --format xml --datafile $datafile --destination $root >/dev/null 2>&1") == 0 or die "could not create report";
-		system("sh $COBERTURA_REPORT --format html --datafile $datafile --destination $root >/dev/null 2>&1") == 0 or die "could not create report";
+		system("sh $CORBETURA_MERGE --datafile $datafile $merge_with $serfile >/dev/null 2>&1") == 0 or die "could not merge results";
+		system("sh $CORBETURA_REPORT --format xml --datafile $datafile --destination $root >/dev/null 2>&1") == 0 or die "could not create report";
 
 	} else {
 		# Generate XML directly if merge is not needed.

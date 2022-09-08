@@ -33,7 +33,7 @@ for handler in (stream_handler, file_handler, file_debug_handler):
 
 def main():
     # assure we're in a good env
-    test_environment()
+    #test_environment()
 
     # define actions and sort them automatically
     actions = ("backup", "restore", "mutants", "run")
