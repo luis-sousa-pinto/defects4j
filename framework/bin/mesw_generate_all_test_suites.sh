@@ -4,11 +4,11 @@ projects=(
         Chart
         #Cli
         #Closure
-        Codec
+        #Codec
         #Collections
-        Compress
-        Csv
-        Gson
+        #Compress
+        #Csv
+        #Gson
         #JacksonCore
         #JacksonDatabind
         #JacksonXml
@@ -16,7 +16,7 @@ projects=(
         #JxPath
         #Lang
         #Math
-        Mockito
+        #Mockito
         #Time
 )
 
@@ -43,10 +43,8 @@ for project in "${projects[@]}"; do
                         #Loop how many different versions we need
 
 			for seed in {1..5..1}; do
-				job_name=${project}_${bug_id}_evosuite_${seed}
-                        	sbatch -J ${job_name}_gen -o "${proj_log_dir}/outputs/${job_name}.out" -e "${proj_log_dir}/errors/${job_name}.error" mesw/1_gen_test_suite.sh evosuite $project $bug_id $seed
-				job_name=${project}_${bug_id}_randoop_${seed}
-				sbatch -J ${job_name}_gen -o "${proj_log_dir}/outputs/${job_name}.out" -e "${proj_log_dir}/errors/${job_name}.error" mesw/1_gen_test_suite.sh randoop $project $bug_id $seed
+                        	mesw/1_gen_test_suite.sh evosuite $project $bug_id $seed
+				mesw/1_gen_test_suite.sh randoop $project $bug_id $seed
 			done
                 done < "$bugs_file"
         fi
