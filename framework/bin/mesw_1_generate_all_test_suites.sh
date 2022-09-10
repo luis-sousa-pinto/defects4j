@@ -43,8 +43,8 @@ for project in "${projects[@]}"; do
                         #Loop how many different versions we need
 
 			for seed in {1..5..1}; do
-                        	mesw/1_gen_test_suite.sh evosuite $project $bug_id $seed
-				mesw/1_gen_test_suite.sh randoop $project $bug_id $seed
+                        	mesw_1_gen_test_suite.sh evosuite $project $bug_id $seed
+				mesw_1_gen_test_suite.sh randoop $project $bug_id $seed
 			done
                 done < "$bugs_file"
         fi
