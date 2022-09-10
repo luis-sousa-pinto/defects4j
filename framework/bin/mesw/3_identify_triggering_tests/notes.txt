@@ -1,0 +1,24 @@
+Use Thomas's modifed version so we can see triggering tests per bug version per seed. 
+
+Log any failures to 3/failed_run_bug.log
+
+165 jobs e.g 1 per suite (exclude project that has no randoop/evosuite)
+
+For each failed suite, read from log file and run run_bug_det using -v option to run bug_det per bug in that suite again logging failures to 3/failed_run_bug_by_vid.log
+
+8 failed suites
+
+Ran 608 individual jobs for these failed suites (by_vid)
+
+Only 5 failed by vid, couldn't create trig tests for these therefore remove these from the fixed suites section as they have problems. 
+
+Recount:
+RESULTS
+Less than 5 suites: 0
+5-10 suites: 190
+10 suites: 641
+Other: 0
+Total: 831
+Valid results
+
+No change in results

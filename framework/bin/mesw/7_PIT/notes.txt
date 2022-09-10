@@ -1,0 +1,57 @@
+Only suites with triggering tests ran
+
+Failed checkouts, compiles, pit mutation and moving files will be logged
+
+Moved successfully represents the suites that worked
+
+Rd.1:
+1516 jobs submitted
+No Collections
+Up to and including Gson
+
+766 Completed
+750 Failed (some project compile errors)
+
+Rd.2:
+1516 jobs submitted
+Didnt work well
+
+Rd.3:
+
+Do each project individually so we dont run out of room on /tmp dir
+Chart PIT 1.5.2:
+219 Jobs
+7 running (broken)
+146 Success
+66 Failed
+
+Chart PIT 1.4.6:
+219 Jobs
+147 Success
+72 Failed (Some of these were memory errors)
+
+I think I will run them with V1.5.2 per project
+
+Final Chart Run (v 1.5.2):
+Git error fixed
+219 Jobs (better logging and tmp folder in scratch)
+
+
+
+
+
+3794 + 219 = 4013 jobs total
+
+
+Rerun after loading jdk module to see if it makes a difference?
+Didnt run Chart
+3794 jobs
+
+PROPER RUN - 2020-09-03 17:00
+4013 Jobs
+
+87 Timed Out (6 days)
+
+
+Dev RUN: 14-09-2002
+423 jobs
