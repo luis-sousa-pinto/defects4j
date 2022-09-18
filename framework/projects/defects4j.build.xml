@@ -555,7 +555,7 @@ project-specific build file ("project_id"/"project_id".build.xml) for the
             classPath="mutation.pit.path2"
             targetClasses="${modified.classes}"
             targetTests="${dev.target.tests}"
-            outputformats="XML,HTML"
+            outputformats="XML,HTML,CSV"
             reportDir="${basedir}/pitReports/"
 	    sourceDir="${source.dir}/"
             threads="6"
